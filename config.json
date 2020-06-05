@@ -56,13 +56,13 @@
 			"key": "parent-pid",
 			"name": "Parent project pid",
 			"required": true,
-			"type": "text"
+			"type": "project-id"
 		},
 		{
 			"key": "mrn-field",
 			"name": "MRN field",
 			"required": true,
-			"type": "text"
+			"type": "field-list"
 		}
 	],
 
