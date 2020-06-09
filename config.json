@@ -1,88 +1,88 @@
 {
-	"name": "ProjectLinker",
+  "name": "ProjectLinker",
 
-	"namespace": "Stanford\\ProjectLinker",
+  "namespace": "Stanford\\ProjectLinker",
 
-	"description": "This module links a project to other project via a parent project which is configured through this module.  The Parent project must have an access token to the child project",
+  "description": "This module links a project to other project via a parent project which is configured through this module.  The Parent project must have an access token to the child project",
 
-	"documentation": "README.md",
+  "documentation": "README.md",
 
-	"authors": [
-		{
-			"name": "Eileen Loh",
-			"email": "eloh@stanfordhealthcare.org",
-			"institution": "School of Medicine, Stanford University"
-		},
+  "authors": [
+    {
+      "name": "Eileen Loh",
+      "email": "eloh@stanfordhealthcare.org",
+      "institution": "School of Medicine, Stanford University"
+    },
+    {
+      "name": "Ihab Zeedia",
+      "email": "IZeedia@stanfordhealthcare.org",
+      "institution": "School of Medicine, Stanford University"
+    }
+  ],
+
+  "permissions": [
+
+  ],
+
+  "enable-every-page-hooks-on-system-pages": false,
+
+  "links": {
+    "project": [
       {
-        "name": "Ihab Zeedia",
-        "email": "IZeedia@stanfordhealthcare.org",
-        "institution": "School of Medicine, Stanford University"
+        "name": "Project linker",
+        "icon": "gear",
+        "url": "Pages/ProjectLinkerReport.php",
+        "show-header-and-footer": true
       }
-	],
 
-	"permissions": [
+    ],
+    "control-center": [
 
-	],
+    ]
+  },
 
-	"enable-every-page-hooks-on-system-pages": false,
+  "no-auth-pages": [
 
-	"links": {
-		"project": [
-			{
-				"name": "Project linker",
-				"icon": "gear",
-				"url": "Pages/ProjectLinkerReport.php",
-				"show-header-and-footer": true
-			}
+  ],
 
-		],
-		"control-center": [
+  "project-settings": [
+    {
+      "key": "admin-only-warning",
+      "type": "descriptive",
+      "name": "<br><h6>Only users with design rights on all source projects are allowed to configure this module.</h6><br>"
+    },
+    {
+      "key": "enable-project-debug-logging",
+      "name": "<b>Enable Debug Logging</b> <i>(Requires emLogger)</i>",
+      "required": false,
+      "type": "checkbox"
+    },
+    {
+      "key": "parent-pid",
+      "name": "Parent project pid",
+      "required": true,
+      "type": "project-id"
+    },
+    {
+      "key": "mrn-field",
+      "name": "MRN field",
+      "required": true,
+      "type": "field-list"
+    }
+  ],
 
-		]
-	},
+  "system-settings": [
 
-	"no-auth-pages": [
+  ],
 
-	],
+  "crons": [
 
-	"project-settings": [
-		{
-			"key": "admin-only-warning",
-			"type": "descriptive",
-			"name": "<br><h6>Only users with design rights on all source projects are allowed to configure this module.</h6><br>"
-		},
-		{
-			"key": "enable-project-debug-logging",
-			"name": "<b>Enable Debug Logging</b> <i>(Requires emLogger)</i>",
-			"required": false,
-			"type": "checkbox"
-		},
-		{
-			"key": "parent-pid",
-			"name": "Parent project pid",
-			"required": true,
-			"type": "project-id"
-		},
-		{
-			"key": "mrn-field",
-			"name": "MRN field",
-			"required": true,
-			"type": "field-list"
-		}
-	],
+  ],
 
-	"system-settings": [
-
-	],
-
-	"crons": [
-
-	],
-
-	"compatibility": {
-		"php-version-min": "",
-		"php-version-max": "",
-		"redcap-version-min": "",
-		"redcap-version-max": ""
-	}
+  "compatibility": {
+    "php-version-min": "",
+    "php-version-max": "",
+    "redcap-version-min": "",
+    "redcap-version-max": ""
+  }
 }
