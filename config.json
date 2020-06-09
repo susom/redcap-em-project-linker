@@ -10,9 +10,14 @@
 	"authors": [
 		{
 			"name": "Eileen Loh",
-			"email": "eloh@stanford.edu",
+			"email": "eloh@stanfordhealthcare.org",
 			"institution": "School of Medicine, Stanford University"
-		}
+		},
+      {
+        "name": "Ihab Zeedia",
+        "email": "IZeedia@stanfordhealthcare.org",
+        "institution": "School of Medicine, Stanford University"
+      }
 	],
 
 	"permissions": [

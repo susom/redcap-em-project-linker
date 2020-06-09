@@ -224,14 +224,20 @@ foreach ($allProjects as $pid => $fields) {
         } else {
             echo '</td>';
         }
-        echo '<td><input type="button" class="btn" onclick="download(' . $pid .
-            ',\'dictionary\',null); return false;" value ="Data Dictionary"/>';
+        echo '<td><input type="button" class="m-1 btn" onclick="download(' . $pid .
+            ',\'dictionary\',null); return false;" value 
+="Data Dictionary"/>';
         if (count($mrnmatches[$pid]) &&
             strtolower($project['access']) === 'data') {
 
-            echo '<input type="button" class="btn" onclick="download(' . $pid .
-                ',\'data\', \''.implode(',', array_keys($mrnmatches[$pid])).'\'); return false;" 
-        value="Data"/></td></tr>';
+            echo '<input type="button" class="m-1 btn" onclick="download(' . $pid .
+                ',\'labelleddata\', \''
+                .implode(',', array_keys($mrnmatches[$pid]))
+                .'\'); return false;" value="Labelled Data"/>';
+            echo '<input type="button" class="m-1 btn" onclick="download(' . $pid .
+                ',\'rawdata\', \''
+                .implode(',', array_keys($mrnmatches[$pid])).
+                '\'); return false;" value="Raw Data"/></td></tr>';
         } else {
             echo '</td></tr>';
         }

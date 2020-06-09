@@ -32,7 +32,7 @@ if (!empty($proj_id)) {
         download_csv($projdatadictionary, 'dictionary', 'proj'.$proj_id.'_datadictionary.csv');
 
     }
-    if ($type == 'data') {
+    if ($type == 'rawdata' || $type == 'labelleddata') {
         if (empty($recordids)) {
             print json_encode(array(
                     "status" => 0,
@@ -43,8 +43,12 @@ if (!empty($proj_id)) {
             return;
 
         }
-
-        $projdata = REDCap::getData($proj_id, 'csv', explode(',', $recordids));
+        if ($type == 'rawdata') {
+            $projdata = REDCap::getData($proj_id, 'csv', explode(',', $recordids));
+        } else {
+            $projdata = REDCap::getData($proj_id, 'csv', explode(',', $recordids),
+                null, null,null,true,false,false,null,true,true);
+        }
 
         if (empty($projdata)) {
             print json_encode(array(
