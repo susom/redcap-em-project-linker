@@ -20,11 +20,8 @@ $url = $module->getUrl("Pages/ProjectLinkerDownload.php");
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+    <!-- jquery, popper and bootstrap are already loaded through redcap,
+    if you try to include again, collapse will not work-->
 
     <style>
         body {
@@ -220,13 +217,22 @@ foreach ($allProjects as $pid => $fields) {
         echo '<td>' . $project['access'] . '</td>';
         echo '<td># of MRNs: ' . count($mrnmatches[$pid]);
         if (strpos(strtolower($project['access']), 'dictionary') === false ) {
-            echo '<br>' . implode(', ', $mrnmatches[$pid]) . '</td>';
+            if (count($mrnmatches[$pid]) <= 20) {
+                echo '<br>' . implode(', ', $mrnmatches[$pid]) . '</td>';
+            } else {
+                echo '<br><input class="btn my-1" type="button" data-toggle="collapse" 
+                    data-target="#mrnCollapse" aria-expanded="false"
+                    aria-controls="mrnCollapse" value="Show MRNS"/>';
+                echo '<div class="collapse" id="mrnCollapse"><div class="card card-body">';
+                echo implode(', ', $mrnmatches[$pid]);
+                echo '</div></div>';
+            }
         } else {
             echo '</td>';
         }
         echo '<td><input type="button" class="m-1 btn" onclick="download(' . $pid .
-            ',\'dictionary\',null); return false;" value 
-="Data Dictionary"/>';
+            ',\'dictionary\',null); return false;" 
+            value="Data Dictionary"/>';
         if (count($mrnmatches[$pid]) &&
             strtolower($project['access']) === 'data') {
 
